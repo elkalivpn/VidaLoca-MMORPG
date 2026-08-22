@@ -1,0 +1,101 @@
+import { PrismaService } from '../prisma/prisma.service';
+import { TransactionsService } from '../transactions/transactions.service';
+export declare class EconomyService {
+    private prisma;
+    private transactionsService;
+    constructor(prisma: PrismaService, transactionsService: TransactionsService);
+    addEuros(userId: string, amount: number, reason: string, reference?: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        displayName: string;
+        level: number;
+        xp: number;
+        reputation: number;
+        euros: number;
+        vidaCoins: number;
+        locationId: string | null;
+        isOnline: boolean;
+        lastLogin: Date;
+        userId: string;
+    }>;
+    spendEuros(userId: string, amount: number, reason: string, reference?: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        displayName: string;
+        level: number;
+        xp: number;
+        reputation: number;
+        euros: number;
+        vidaCoins: number;
+        locationId: string | null;
+        isOnline: boolean;
+        lastLogin: Date;
+        userId: string;
+    }>;
+    addVidaCoins(userId: string, amount: number, reason: string, reference?: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        displayName: string;
+        level: number;
+        xp: number;
+        reputation: number;
+        euros: number;
+        vidaCoins: number;
+        locationId: string | null;
+        isOnline: boolean;
+        lastLogin: Date;
+        userId: string;
+    }>;
+    spendVidaCoins(userId: string, amount: number, reason: string, reference?: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        displayName: string;
+        level: number;
+        xp: number;
+        reputation: number;
+        euros: number;
+        vidaCoins: number;
+        locationId: string | null;
+        isOnline: boolean;
+        lastLogin: Date;
+        userId: string;
+    }>;
+    getBalance(userId: string): Promise<{
+        euros: number;
+        vidaCoins: number;
+    }>;
+    purchaseWithVidaCoins(userId: string, amount: number, item: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        displayName: string;
+        level: number;
+        xp: number;
+        reputation: number;
+        euros: number;
+        vidaCoins: number;
+        locationId: string | null;
+        isOnline: boolean;
+        lastLogin: Date;
+        userId: string;
+    }>;
+    purchaseWithEuros(userId: string, amount: number, item: string): Promise<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        displayName: string;
+        level: number;
+        xp: number;
+        reputation: number;
+        euros: number;
+        vidaCoins: number;
+        locationId: string | null;
+        isOnline: boolean;
+        lastLogin: Date;
+        userId: string;
+    }>;
+}
