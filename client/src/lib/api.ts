@@ -128,5 +128,22 @@ export const api = {
       body: JSON.stringify({ level }),
     }),
 
+  myClan: () => request('/clans/my'),
+  createClan: (name: string, tag: string) =>
+    request('/clans/create', {
+      method: 'POST',
+      body: JSON.stringify({ name, tag }),
+    }),
+  joinClan: (clanId: string) =>
+    request(`/clans/join/${clanId}`, { method: 'POST' }),
+  leaveClan: () => request('/clans/leave', { method: 'POST' }),
+  clanLeaderboard: () => request('/clans/leaderboard'),
+
+  inventory: () => request('/inventory'),
+  equipItem: (itemId: string) =>
+    request(`/inventory/equip/${itemId}`, { method: 'POST' }),
+  equipWeapon: (weaponId: string) =>
+    request(`/inventory/weapons/equip/${weaponId}`, { method: 'POST' }),
+
   health: () => request('/health'),
 };
