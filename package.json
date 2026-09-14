@@ -1,7 +1,7 @@
 {
-  "name": "vidaloca-backend",
+  "name": "vidaloca-mmorpg",
   "version": "0.0.1",
-  "description": "",
+  "description": "VidaLoca MMORPG - Mundo libre donde tú decides quién eres",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -17,7 +17,14 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:reset": "prisma migrate reset --force",
+    "db:studio": "prisma studio",
+    "start:docker": "docker compose up -d",
+    "stop:docker": "docker compose down"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -37,7 +44,11 @@
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "tsx": "^4.23.12",
-    "uuid": "^14.0.2"
+    "uuid": "^14.0.2",
+    "@nestjs/swagger": "^11.0.0",
+    "@nestjs/websockets": "^11.0.0",
+    "@nestjs/platform-socket.io": "^11.0.0",
+    "socket.io": "^4.8.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -69,20 +80,13 @@
     "typescript-eslint": "^8.20.0"
   },
   "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
+    "moduleFileExtensions": ["js", "json", "ts"],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "collectCoverageFrom": [
-      "**/*.(t|j)s"
-    ],
+    "transform": {"^.+\\.(t|j)s$": "ts-jest"},
+    "collectCoverageFrom": ["**/*.(t|j)s"],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "prisma": {"seed": "tsx prisma/seed.ts"}
 }
