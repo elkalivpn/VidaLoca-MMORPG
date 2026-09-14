@@ -1,61 +1,46 @@
-```
 # Dependencies
 node_modules/
+.pnp
+.pnp.js
 
-# Build artifacts
+# Build
 dist/
 build/
-*.js
-*.mjs
-*.cjs
-*.d.ts
-*.d.mts
-*.map
+coverage/
+*.tsbuildinfo
 
-# Cache directories
-.cache/
-.prisma/
-
-# Environment
+# Environment – NEVER commit secrets
 .env
 .env.local
-*.env.*
+.env.*.local
+!.env.example
 
 # Logs
+logs/
 *.log
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Package manager
-package-lock.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
+# OS
+.DS_Store
+Thumbs.db
 
-# Coverage directory used by tools like istanbul
-coverage/
-*.lcov
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Temporary folders
+# Prisma
+# Keep schema and migrations, ignore generated client if needed
+# .prisma/
+
+# Temporary
 tmp/
 temp/
+.cache/
 
-# System Files
-ehthumbs.db
-Icon?
-Network Trash Folder
-```
+# Test
+/coverage
